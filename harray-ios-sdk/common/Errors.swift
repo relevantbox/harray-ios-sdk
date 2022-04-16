@@ -5,6 +5,6 @@
 
 import Foundation
 
-enum XennError: Error {
+enum RBError: Error {
     case configuration(message: String)
 }

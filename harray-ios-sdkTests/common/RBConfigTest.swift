@@ -15,8 +15,8 @@ class RBConfigTest: XCTestCase {
         let rbConfig = RBConfig.create(sdkKey: "sdkKey")
         
         XCTAssertEqual("sdkKey", rbConfig.getSdkKey())
-        XCTAssertEqual("https://c.rb.io", rbConfig.getCollectorUrl())
-        XCTAssertEqual("https://api.rb.io", rbConfig.getApiUrl())
+        XCTAssertEqual("https://c.relevantbox.io", rbConfig.getCollectorUrl())
+        XCTAssertEqual("https://api.relevantbox.io", rbConfig.getApiUrl())
     }
     
     func test_it_should_create_rb_config_with_custom_api_url_and_collector_url() {

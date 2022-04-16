@@ -10,7 +10,7 @@ class RBTest: XCTestCase {
     func test_it_should_throw_error_when_try_to_get_instance_without_invoking_configuration() throws {
         do {
             try RB.eventing()
-        } catch XennError.configuration(let message) {
+        } catch RBError.configuration(let message) {
             XCTAssertEqual("RB.configure(rbConfig: RBConfig) must be called before getting instance", message)
         }
     }
