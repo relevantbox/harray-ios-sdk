@@ -3,7 +3,7 @@
 //  harray-ios-sdkTests
 //
 //  Created by Bay Batu on 29.09.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest
@@ -23,8 +23,8 @@ class PushMessagesHistoryProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
                 sdkKey: "sdkKey",
                 session: FakeUrlSession(),
-                collectorUrl: "https://c.xenn.io",
-                apiUrl: "https://api.xenn.io"
+                collectorUrl: "https://c.rb.io",
+                apiUrl: "https://api.rb.io"
         )
         httpService.givenGetApiRequest(
                 path: "/push-messages-history",

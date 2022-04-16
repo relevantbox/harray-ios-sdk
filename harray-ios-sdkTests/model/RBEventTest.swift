@@ -1,14 +1,14 @@
 //
-//  XennEventTest.swift
+//  RBEventTest.swift
 //  harray-ios-sdkTests
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest
 
-class XennEventTest: XCTestCase {
+class RBEventTest: XCTestCase {
 
     func test_it_should_construct_fields_properly(){
         let eventName = "test"
@@ -17,7 +17,7 @@ class XennEventTest: XCTestCase {
             "body4": "extra2"
         ]
 
-        let xennEvent = XennEvent
+        let rbEvent = RBEvent
                 .create(name: eventName, persistentId: "pid", sessionId: "sid")
                 .memberId(memberId: "memberId")
                 .addHeader(key: "header2", value: "value1")
@@ -26,9 +26,9 @@ class XennEventTest: XCTestCase {
                 .addBody(key:"body2", value: "stringValue")
                 .appendExtra(params: extraParams)
 
-        let xennEventMap = xennEvent.toMap()
-        let header = xennEventMap["h"] as! Dictionary<String, Any>
-        let body = xennEventMap["b"] as! Dictionary<String, Any>
+        let rbEventMap = rbEvent.toMap()
+        let header = rbEventMap["h"] as! Dictionary<String, Any>
+        let body = rbEventMap["b"] as! Dictionary<String, Any>
 
         XCTAssertTrue(eventName == header["n"] as! String)
         XCTAssertTrue("pid" == header["p"] as! String)
@@ -49,7 +49,7 @@ class XennEventTest: XCTestCase {
             "body4": "extra2"
         ]
 
-        let xennEvent = XennEvent
+        let rbEvent = RBEvent
                 .create(name: eventName, persistentId: "pid", sessionId: "sid")
                 .memberId(memberId: "")
                 .addHeader(key: "header2", value: "value1")
@@ -58,9 +58,9 @@ class XennEventTest: XCTestCase {
                 .addBody(key:"body2", value: "stringValue")
                 .appendExtra(params: extraParams)
 
-        let xennEventMap = xennEvent.toMap()
-        let header = xennEventMap["h"] as! Dictionary<String, Any>
-        let body = xennEventMap["b"] as! Dictionary<String, Any>
+        let rbEventMap = rbEvent.toMap()
+        let header = rbEventMap["h"] as! Dictionary<String, Any>
+        let body = rbEventMap["b"] as! Dictionary<String, Any>
 
         XCTAssertTrue(eventName == header["n"] as! String)
         XCTAssertTrue("pid" == header["p"] as! String)

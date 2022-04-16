@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by Yildirim Adiguzel on 22.09.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -38,7 +38,7 @@ class InAppView : UIView {
     }
     
     func loadPopup(content: String) {
-        let bundle = Bundle(identifier: "org.cocoapods.Xennio")
+        let bundle = Bundle(identifier: "org.cocoapods.RB")
         bundle?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
         

@@ -1,6 +1,6 @@
 //
 // Created by YILDIRIM ADIGÜZEL on 25.04.2020.
-// Copyright (c) 2020 xennio. All rights reserved.
+// Copyright (c) 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest
@@ -12,8 +12,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         
         var httpResult: HttpResult?
@@ -38,8 +38,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         
         httpService.getApiRequest(
@@ -58,8 +58,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
 
         var result: HttpResult?
@@ -75,8 +75,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
 
         var result: HttpResult?
@@ -92,8 +92,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
 
         var result: HttpResult?
@@ -109,8 +109,8 @@ class HttpServiceTest: XCTestCase {
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         var result: HttpDownloadableResult?
         httpService.downloadContent(endpoint: nil) {
@@ -120,40 +120,40 @@ class HttpServiceTest: XCTestCase {
     }
 
     func test_it_should_call_completion_handler_with_http_downloadable_result_when_response_is_valid() {
-        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
+        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.rb.io")!))
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         var result: HttpDownloadableResult?
-        httpService.downloadContent(endpoint: "https://c.xenn.io/img.gif") {
+        httpService.downloadContent(endpoint: "https://c.rb.io/img.gif") {
             result = $0
         }
-        XCTAssertEqual(URL(string: "http://www.xenn.io")!, result?.getPath())
+        XCTAssertEqual(URL(string: "http://www.rb.io")!, result?.getPath())
     }
 
     func test_it_should_add_sdk_key_to_collector_url() {
-        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
+        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.rb.io")!))
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
-        XCTAssertEqual("https://c.xenn.io/sdk-key", httpService.getCollectorUrl())
+        XCTAssertEqual("https://c.rb.io/sdk-key", httpService.getCollectorUrl())
     }
 
     func test_it_should_add_path_to_collector_url() {
-        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.xenn.io")!))
+        let fakeUrlSession = MockUrlSession(httpDownloadableResult: HttpDownloadableResult(path: URL(string: "http://www.rb.io")!))
         let httpService = HttpService(
             sdkKey: "sdk-key",
             session: fakeUrlSession,
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
-        XCTAssertEqual("https://c.xenn.io/path", httpService.getCollectorUrl(path: "path"))
+        XCTAssertEqual("https://c.rb.io/path", httpService.getCollectorUrl(path: "path"))
     }
 
 }

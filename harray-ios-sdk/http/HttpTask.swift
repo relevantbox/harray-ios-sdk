@@ -1,6 +1,6 @@
 //
 // Created by YILDIRIM ADIGÜZEL on 27.04.2020.
-// Copyright (c) 2020 xennio. All rights reserved.
+// Copyright (c) 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation

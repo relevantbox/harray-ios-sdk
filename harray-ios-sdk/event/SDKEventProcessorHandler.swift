@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 22.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -29,7 +29,7 @@ class SDKEventProcessorHandler {
     }
 
     func sessionStart() {
-        let pageViewEvent = XennEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addHeader(key: "sv", value: applicationContextHolder.getSdkVersion())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "os", value: Constants.IOS.rawValue)
@@ -50,7 +50,7 @@ class SDKEventProcessorHandler {
     }
     
     func newInstallation() {
-        let pageViewEvent = XennEvent.create(name: "NI", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "NI", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
@@ -59,7 +59,7 @@ class SDKEventProcessorHandler {
 
     func heatBeat() {
         if (sessionContextHolder.getLastActivityTime() < ClockUtils.getTime() - HEART_BEAT_INTERVAL) {
-            let pageViewEvent = XennEvent.create(name: "HB", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+            let pageViewEvent = RBEvent.create(name: "HB", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                     .memberId(memberId: sessionContextHolder.getMemberId())
                     .toMap()
             let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)

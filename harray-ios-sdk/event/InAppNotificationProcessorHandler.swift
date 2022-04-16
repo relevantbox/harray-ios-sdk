@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by Yildirim Adiguzel on 28.09.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -12,19 +12,19 @@ import UIKit
 @available(iOSApplicationExtension,unavailable)
 @objc public class InAppNotificationProcessorHandler: NSObject, AfterPageViewEventHandler {
     
-    private let xennConfig: XennConfig
+    private let rbConfig: RBConfig
     private let applicationContextHolder: ApplicationContextHolder
     private let sessionContextHolder: SessionContextHolder
     private let httpService: HttpService
     private let eventProcessorHandler: EventProcessorHandler
     private let jsonDeserializerService: JsonDeserializerService
     
-    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, eventProcessorHandler: EventProcessorHandler, xennConfig: XennConfig,jsonDeserializerService: JsonDeserializerService) {
+    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, eventProcessorHandler: EventProcessorHandler, rbConfig: RBConfig,jsonDeserializerService: JsonDeserializerService) {
         self.applicationContextHolder = applicationContextHolder
         self.sessionContextHolder = sessionContextHolder
         self.httpService = httpService
         self.eventProcessorHandler = eventProcessorHandler
-        self.xennConfig = xennConfig
+        self.rbConfig = rbConfig
         self.jsonDeserializerService = jsonDeserializerService
     }
 
@@ -42,7 +42,7 @@ import UIKit
                     mView.loadPopup(content: "<html><head><style>" + notificationResponse.style! + "</style></head><body>" + notificationResponse.html! + "</body></html>")
                     mView.onNavigation = {
                         navigateTo in
-                        self.xennConfig.getInAppNotificationLinkClickHandler()?(navigateTo)
+                        self.rbConfig.getInAppNotificationLinkClickHandler()?(navigateTo)
                     }
                     mView.onClose = {
                         params["action"] = "close"
@@ -58,7 +58,7 @@ import UIKit
     
     func callAfter(pageType: String) {
         var params = Dictionary<String, String>()
-        params["sdkKey"] = xennConfig.getSdkKey()
+        params["sdkKey"] = rbConfig.getSdkKey()
         params["pid"] = applicationContextHolder.getPersistentId()
         params["pageType"] = pageType
         if sessionContextHolder.getMemberId() != nil {

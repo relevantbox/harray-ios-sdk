@@ -1,6 +1,6 @@
 //
 // Created by Yildirim Adiguzel on 3.05.2020.
-// Copyright (c) 2020 xennio. All rights reserved.
+// Copyright (c) 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest

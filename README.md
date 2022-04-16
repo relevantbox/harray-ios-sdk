@@ -1,29 +1,13 @@
-# Xennio-IOS-SDK
+# RB-IOS-SDK
 
-[![Build Status](https://travis-ci.com/xennio/harray-ios-sdk.svg?branch=master)](https://travis-ci.com/xennio/harray-ios-sdk)
-[![codecov](https://codecov.io/gh/xennio/harray-ios-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/xennio/harray-ios-sdk)
-[![Platform](https://img.shields.io/cocoapods/p/Xennio.svg?style=flat)](https://cocoapods.org/pods/Xennio)
-[![Version](https://img.shields.io/cocoapods/v/Xennio.svg?style=flat)](https://cocoapods.org/pods/Xennio)
-![GitHub](https://img.shields.io/github/license/xennio/harray-ios-sdk?style=flat-square)
+[![Build Status](https://travis-ci.com/rbio/harray-ios-sdk.svg?branch=master)](https://travis-ci.com/rbio/harray-ios-sdk)
+[![codecov](https://codecov.io/gh/rbio/harray-ios-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/rbio/harray-ios-sdk)
+[![Platform](https://img.shields.io/cocoapods/p/RB.svg?style=flat)](https://cocoapods.org/pods/RB)
+[![Version](https://img.shields.io/cocoapods/v/RB.svg?style=flat)](https://cocoapods.org/pods/RB)
+![GitHub](https://img.shields.io/github/license/rbio/harray-ios-sdk?style=flat-square)
 
 # Integration Guide
-This guide provides necessary steps to implement Xenn.io IOS SDK for native applications. 
-
-### Setup
-
-1. [Prerequisites](https://github.com/xennio/harray-ios-sdk/wiki/Prerequisites)
-2. [Creating Application](https://github.com/xennio/harray-ios-sdk/wiki/Creating-Application)
-3. [Installing the SDK](https://github.com/xennio/harray-ios-sdk/wiki/Installing-the-SDK)
-4. [Identifying Members](https://github.com/xennio/harray-ios-sdk/wiki/Identifying-Members)
-5. [Page Views Events](https://github.com/xennio/harray-ios-sdk/wiki/Page-Views-Events)
-6. [User Action Events](https://github.com/xennio/harray-ios-sdk/wiki/User-Action-Events)
-7. [Impression Events](https://github.com/xennio/harray-ios-sdk/wiki/Impression-Events)
-8. [Custom Events](https://github.com/xennio/harray-ios-sdk/wiki/Custom-Events)
-
-### Push Notifications
-
-1. [Setup]
-2. [Intent Support]
+This guide provides necessary steps to implement Relevantbox.io IOS SDK for native applications. 
 
 ## License
 

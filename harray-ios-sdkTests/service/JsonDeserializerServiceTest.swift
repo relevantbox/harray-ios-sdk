@@ -3,7 +3,7 @@
 //  harray-ios-sdkTests
 //
 //  Created by Bay Batu on 29.01.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest

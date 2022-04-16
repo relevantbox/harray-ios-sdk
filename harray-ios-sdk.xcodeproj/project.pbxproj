@@ -15,14 +15,14 @@
 		1D6C7F3A245037BC001FE80C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F37245037BC001FE80C /* SessionState.swift */; };
 		1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */; };
 		1D6C7F49245037C6001FE80C /* ClockUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3E245037C6001FE80C /* ClockUtils.swift */; };
-		1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* XennioLogger.swift */; };
+		1D6C7F4A245037C6001FE80C /* RBLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* RBLogger.swift */; };
 		1D6C7F4B245037C6001FE80C /* RandomValueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */; };
 		1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F42245037C6001FE80C /* EncodingService.swift */; };
 		1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */; };
 		1D6C7F4E245037C6001FE80C /* EntitySerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */; };
 		1D6C7F4F245037C6001FE80C /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F45245037C6001FE80C /* HttpService.swift */; };
-		1D6C7F50245037C6001FE80C /* XennEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* XennEvent.swift */; };
-		1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
+		1D6C7F50245037C6001FE80C /* RBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* RBEvent.swift */; };
+		1D6C7F52245037CF001FE80C /* RB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* RB.swift */; };
 		1D6C7F61245037E4001FE80C /* Stubbings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F54245037E4001FE80C /* Stubbings.swift */; };
 		1D6C7F62245037E4001FE80C /* ClockUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */; };
 		1D6C7F63245037E4001FE80C /* RandomValueUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */; };
@@ -32,19 +32,19 @@
 		1D6C7F68245037E4001FE80C /* EntitySerializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F5F245037E4001FE80C /* EntitySerializerServiceTest.swift */; };
 		1D6C7F69245037E4001FE80C /* EncodingServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F60245037E4001FE80C /* EncodingServiceTest.swift */; };
 		1D6C7F6A2450384E001FE80C /* EventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */; };
-		1D6C7F6B24503851001FE80C /* XennEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* XennEvent.swift */; };
+		1D6C7F6B24503851001FE80C /* RBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F47245037C6001FE80C /* RBEvent.swift */; };
 		1D6C7F6C24503855001FE80C /* EncodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F42245037C6001FE80C /* EncodingService.swift */; };
 		1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */; };
 		1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */; };
 		1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F45245037C6001FE80C /* HttpService.swift */; };
 		1D6C7F7024503861001FE80C /* ClockUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3E245037C6001FE80C /* ClockUtils.swift */; };
-		1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* XennioLogger.swift */; };
+		1D6C7F7124503863001FE80C /* RBLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3F245037C6001FE80C /* RBLogger.swift */; };
 		1D6C7F7224503866001FE80C /* RandomValueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */; };
 		1D6C7F7324503869001FE80C /* SessionContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F35245037BC001FE80C /* SessionContextHolder.swift */; };
 		1D6C7F742450386B001FE80C /* ApplicationContextHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F36245037BC001FE80C /* ApplicationContextHolder.swift */; };
 		1D6C7F752450386E001FE80C /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F37245037BC001FE80C /* SessionState.swift */; };
 		1D6C7F7624503870001FE80C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F3224503782001FE80C /* Constants.swift */; };
-		1D6C7F7724503876001FE80C /* Xennio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* Xennio.swift */; };
+		1D6C7F7724503876001FE80C /* RB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F51245037CF001FE80C /* RB.swift */; };
 		1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354119D3254F2D3600FC0219 /* OrderTest.swift */; };
@@ -68,14 +68,14 @@
 		75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */; };
 		75F7936590788B5E2B4D582A /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7A24505EF3001FE80C /* DeviceService.swift */; };
 		75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */; };
-		75F79538A038695F8306DA6D /* XennioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F798090784860D02671AE4 /* XennioTest.swift */; };
+		75F79538A038695F8306DA6D /* RBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F798090784860D02671AE4 /* RBTest.swift */; };
 		75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */; };
 		75F796494FDB1AD75C5B9729 /* SDKEventProcessorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */; };
 		75F796CFB20ACD51266EDC35 /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 		75F7974DE59D3DE84EB166E9 /* PostFormUrlEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7938E63E5AEAB886437E4 /* PostFormUrlEncodedRequest.swift */; };
 		75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7937C8E4A3DE0197BA508 /* NotificationProcessorHandler.swift */; };
 		75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F794D0005C9D65925B8D41 /* PostFormUrlEncodedRequestTest.swift */; };
-		75F79A2864363C2E049B9E77 /* XennEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F799FEC7295DCD9574A776 /* XennEventTest.swift */; };
+		75F79A2864363C2E049B9E77 /* RBEventTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F799FEC7295DCD9574A776 /* RBEventTest.swift */; };
 		75F79C72E86B55AF069A2635 /* SDKEventProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C7F7824505DE5001FE80C /* SDKEventProcessorHandler.swift */; };
 		75F79D0F2AF89319D341C0B3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F79280AAAAAA4ACB84F71E /* Errors.swift */; };
 		75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7938E63E5AEAB886437E4 /* PostFormUrlEncodedRequest.swift */; };
@@ -92,14 +92,14 @@
 		C296EE4D25C1535400EA7E73 /* RecommendationProcessorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */; };
 		C296EE5325C18B4400EA7E73 /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		C29B911325C1DD990010C13C /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
-		C2B7CB94262F2F4200DAB8CE /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */; };
+		C2B7CB94262F2F4200DAB8CE /* RBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* RBConfig.swift */; };
 		C2B7CB96262FF52300DAB8CE /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */; };
-		C2B7CB97263039B800DAB8CE /* XennConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */; };
+		C2B7CB97263039B800DAB8CE /* RBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB93262F2F4200DAB8CE /* RBConfig.swift */; };
 		C2B7CB9826303ED400DAB8CE /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */; };
 		C2CFA29925C2863D001B61BE /* JsonDeserializerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B911225C1DD990010C13C /* JsonDeserializerService.swift */; };
 		C2CFA29A25C2864E001B61BE /* ApiGetJsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */; };
 		C2EB054B2630468B004EF82A /* UrlUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB054A2630468B004EF82A /* UrlUtilsTest.swift */; };
-		C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB054D26304713004EF82A /* XennConfigTest.swift */; };
+		C2EB054E26304713004EF82A /* RBConfigTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EB054D26304713004EF82A /* RBConfigTest.swift */; };
 		D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FF478F58033193386CAC /* PostJsonEncodedRequest.swift */; };
 		D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FFC1F8B279C1328FA628 /* PostJsonEncodedRequestTest.swift */; };
 		D3A8FAC96F4EBA60E90FE57B /* FeedbackEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */; };
@@ -136,14 +136,14 @@
 		1D6C7F37245037BC001FE80C /* SessionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
 		1D6C7F3C245037C6001FE80C /* EventProcessorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProcessorHandler.swift; sourceTree = "<group>"; };
 		1D6C7F3E245037C6001FE80C /* ClockUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUtils.swift; sourceTree = "<group>"; };
-		1D6C7F3F245037C6001FE80C /* XennioLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennioLogger.swift; sourceTree = "<group>"; };
+		1D6C7F3F245037C6001FE80C /* RBLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBLogger.swift; sourceTree = "<group>"; };
 		1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomValueUtils.swift; sourceTree = "<group>"; };
 		1D6C7F42245037C6001FE80C /* EncodingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingService.swift; sourceTree = "<group>"; };
 		1D6C7F43245037C6001FE80C /* JsonSerializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializerService.swift; sourceTree = "<group>"; };
 		1D6C7F44245037C6001FE80C /* EntitySerializerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySerializerService.swift; sourceTree = "<group>"; };
 		1D6C7F45245037C6001FE80C /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
-		1D6C7F47245037C6001FE80C /* XennEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennEvent.swift; sourceTree = "<group>"; };
-		1D6C7F51245037CF001FE80C /* Xennio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Xennio.swift; sourceTree = "<group>"; };
+		1D6C7F47245037C6001FE80C /* RBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBEvent.swift; sourceTree = "<group>"; };
+		1D6C7F51245037CF001FE80C /* RB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RB.swift; sourceTree = "<group>"; };
 		1D6C7F54245037E4001FE80C /* Stubbings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stubbings.swift; sourceTree = "<group>"; };
 		1D6C7F55245037E4001FE80C /* ClockUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockUtilsTest.swift; sourceTree = "<group>"; };
 		1D6C7F56245037E4001FE80C /* RandomValueUtilsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomValueUtilsTest.swift; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 		75F793896A549ED373F17825 /* SDKEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F7938E63E5AEAB886437E4 /* PostFormUrlEncodedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormUrlEncodedRequest.swift; sourceTree = "<group>"; };
 		75F794D0005C9D65925B8D41 /* PostFormUrlEncodedRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFormUrlEncodedRequestTest.swift; sourceTree = "<group>"; };
-		75F798090784860D02671AE4 /* XennioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennioTest.swift; sourceTree = "<group>"; };
+		75F798090784860D02671AE4 /* RBTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBTest.swift; sourceTree = "<group>"; };
 		75F79865A169584F33FA5B1C /* JsonSerializerServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSerializerServiceTest.swift; sourceTree = "<group>"; };
-		75F799FEC7295DCD9574A776 /* XennEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XennEventTest.swift; sourceTree = "<group>"; };
+		75F799FEC7295DCD9574A776 /* RBEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBEventTest.swift; sourceTree = "<group>"; };
 		75F79C386130ECC4CD1638D9 /* NotificationProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		75F79CE78FABE7F3A95D9FAA /* HttpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
 		75F79E2D8FC019EEC9D0E3FB /* HttpServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceTest.swift; sourceTree = "<group>"; };
@@ -183,10 +183,10 @@
 		C296EE4C25C1535400EA7E73 /* RecommendationProcessorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationProcessorHandler.swift; sourceTree = "<group>"; };
 		C296EE5225C18B4400EA7E73 /* ApiGetJsonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetJsonRequest.swift; sourceTree = "<group>"; };
 		C29B911225C1DD990010C13C /* JsonDeserializerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializerService.swift; sourceTree = "<group>"; };
-		C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XennConfig.swift; sourceTree = "<group>"; };
+		C2B7CB93262F2F4200DAB8CE /* RBConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBConfig.swift; sourceTree = "<group>"; };
 		C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		C2EB054A2630468B004EF82A /* UrlUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtilsTest.swift; sourceTree = "<group>"; };
-		C2EB054D26304713004EF82A /* XennConfigTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XennConfigTest.swift; sourceTree = "<group>"; };
+		C2EB054D26304713004EF82A /* RBConfigTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBConfigTest.swift; sourceTree = "<group>"; };
 		D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEvent.swift; sourceTree = "<group>"; };
 		D3A8FA015BA0F9D7A89FD17F /* EcommerceEventProcessorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcommerceEventProcessorHandlerTest.swift; sourceTree = "<group>"; };
 		D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEventTest.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				35A9769226FBB8DE00AADE45 /* inapp */,
-				1D6C7F51245037CF001FE80C /* Xennio.swift */,
+				1D6C7F51245037CF001FE80C /* RB.swift */,
 				1D6C7F3B245037C6001FE80C /* event */,
 				1D6C7F46245037C6001FE80C /* model */,
 				1D6C7F41245037C6001FE80C /* service */,
@@ -262,7 +262,7 @@
 				1D6C7F5E245037E4001FE80C /* service */,
 				1D6C7F53245037E4001FE80C /* utils */,
 				1D6C7F272450372D001FE80C /* Info.plist */,
-				75F798090784860D02671AE4 /* XennioTest.swift */,
+				75F798090784860D02671AE4 /* RBTest.swift */,
 				75F7901B9AAF866F3E9630BF /* model */,
 				75F798F30A99647A2B7E20EE /* notification */,
 				75F799521B408D26F0F895BE /* http */,
@@ -275,7 +275,7 @@
 			children = (
 				1D6C7F3224503782001FE80C /* Constants.swift */,
 				75F79280AAAAAA4ACB84F71E /* Errors.swift */,
-				C2B7CB93262F2F4200DAB8CE /* XennConfig.swift */,
+				C2B7CB93262F2F4200DAB8CE /* RBConfig.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6C7F3E245037C6001FE80C /* ClockUtils.swift */,
-				1D6C7F3F245037C6001FE80C /* XennioLogger.swift */,
+				1D6C7F3F245037C6001FE80C /* RBLogger.swift */,
 				1D6C7F40245037C6001FE80C /* RandomValueUtils.swift */,
 				C2B7CB95262FF52300DAB8CE /* UrlUtils.swift */,
 			);
@@ -334,7 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				354119D7254F2D4700FC0219 /* ecommerce */,
-				1D6C7F47245037C6001FE80C /* XennEvent.swift */,
+				1D6C7F47245037C6001FE80C /* RBEvent.swift */,
 				D3A8F03219DAFBBDCDB18479 /* FeedbackEvent.swift */,
 				35F2FB022703988D00EE41AD /* InAppNotificationResponse.swift */,
 			);
@@ -417,7 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				354119D2254F2CFC00FC0219 /* ecommerce */,
-				75F799FEC7295DCD9574A776 /* XennEventTest.swift */,
+				75F799FEC7295DCD9574A776 /* RBEventTest.swift */,
 				D3A8FD795BC84C16138F76BB /* FeedbackEventTest.swift */,
 			);
 			path = model;
@@ -463,7 +463,7 @@
 		C2EB054C263046FA004EF82A /* common */ = {
 			isa = PBXGroup;
 			children = (
-				C2EB054D26304713004EF82A /* XennConfigTest.swift */,
+				C2EB054D26304713004EF82A /* RBConfigTest.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -526,7 +526,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = xennio;
+				ORGANIZATIONNAME = rbio;
 				TargetAttributes = {
 					1D6C7F162450372D001FE80C = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -586,7 +586,7 @@
 				1D6C7F38245037BC001FE80C /* SessionContextHolder.swift in Sources */,
 				1D6C7F7924505DE5001FE80C /* SDKEventProcessorHandler.swift in Sources */,
 				35F2FB0627039D5E00EE41AD /* ChainProcessorHandler.swift in Sources */,
-				1D6C7F4A245037C6001FE80C /* XennioLogger.swift in Sources */,
+				1D6C7F4A245037C6001FE80C /* RBLogger.swift in Sources */,
 				1D6C7F48245037C6001FE80C /* EventProcessorHandler.swift in Sources */,
 				354119E0254F2F0800FC0219 /* OrderItem.swift in Sources */,
 				1D6C7F4C245037C6001FE80C /* EncodingService.swift in Sources */,
@@ -596,15 +596,15 @@
 				1D6C7F39245037BC001FE80C /* ApplicationContextHolder.swift in Sources */,
 				1D6C7F3A245037BC001FE80C /* SessionState.swift in Sources */,
 				1D6C7F3324503782001FE80C /* Constants.swift in Sources */,
-				1D6C7F50245037C6001FE80C /* XennEvent.swift in Sources */,
+				1D6C7F50245037C6001FE80C /* RBEvent.swift in Sources */,
 				1D6C7F4E245037C6001FE80C /* EntitySerializerService.swift in Sources */,
-				1D6C7F52245037CF001FE80C /* Xennio.swift in Sources */,
+				1D6C7F52245037CF001FE80C /* RB.swift in Sources */,
 				1D6C7F4D245037C6001FE80C /* JsonSerializerService.swift in Sources */,
 				1D6C7F7B24505EF3001FE80C /* DeviceService.swift in Sources */,
 				75F7995A3063770EB44E8F6D /* NotificationProcessorHandler.swift in Sources */,
 				75F79FA7035C1DC7514F8D88 /* Errors.swift in Sources */,
 				35F2FAFD270385C000EE41AD /* AfterPageViewEventHandler.swift in Sources */,
-				C2B7CB94262F2F4200DAB8CE /* XennConfig.swift in Sources */,
+				C2B7CB94262F2F4200DAB8CE /* RBConfig.swift in Sources */,
 				75F79E02D73FE1F75CD7B894 /* PostFormUrlEncodedRequest.swift in Sources */,
 				35F2FB002703876200EE41AD /* InAppNotificationProcessorHandler.swift in Sources */,
 				75F79E511915046F48D0FB2E /* HttpTask.swift in Sources */,
@@ -650,11 +650,11 @@
 				354119D4254F2D3600FC0219 /* OrderTest.swift in Sources */,
 				C2CFA29925C2863D001B61BE /* JsonDeserializerService.swift in Sources */,
 				1D6C7F6E2450385C001FE80C /* EntitySerializerService.swift in Sources */,
-				1D6C7F7724503876001FE80C /* Xennio.swift in Sources */,
-				1D6C7F7124503863001FE80C /* XennioLogger.swift in Sources */,
+				1D6C7F7724503876001FE80C /* RB.swift in Sources */,
+				1D6C7F7124503863001FE80C /* RBLogger.swift in Sources */,
 				1D6C7F752450386E001FE80C /* SessionState.swift in Sources */,
 				C256F80B25C3EFFE00240F79 /* RecommendationProcessorHandlerTest.swift in Sources */,
-				1D6C7F6B24503851001FE80C /* XennEvent.swift in Sources */,
+				1D6C7F6B24503851001FE80C /* RBEvent.swift in Sources */,
 				1D6C7F6D24503859001FE80C /* JsonSerializerService.swift in Sources */,
 				1D6C7F6F2450385E001FE80C /* HttpService.swift in Sources */,
 				1D6C7F66245037E4001FE80C /* SessionContextHolderTest.swift in Sources */,
@@ -666,15 +666,15 @@
 				C224C6D82704754900D22A72 /* PushMessagesHistoryProcessorHandler.swift in Sources */,
 				75F79D0F2AF89319D341C0B3 /* Errors.swift in Sources */,
 				C2B7CB9826303ED400DAB8CE /* UrlUtils.swift in Sources */,
-				75F79538A038695F8306DA6D /* XennioTest.swift in Sources */,
+				75F79538A038695F8306DA6D /* RBTest.swift in Sources */,
 				C2EB054B2630468B004EF82A /* UrlUtilsTest.swift in Sources */,
 				75F795E919E1F03BF1032952 /* JsonSerializerServiceTest.swift in Sources */,
 				C256F80F25C42BDC00240F79 /* ApiGetJsonRequestTest.swift in Sources */,
-				75F79A2864363C2E049B9E77 /* XennEventTest.swift in Sources */,
+				75F79A2864363C2E049B9E77 /* RBEventTest.swift in Sources */,
 				75F79F68E5A695270A8E308A /* NotificationProcessorHandlerTest.swift in Sources */,
 				75F794E5C382C753E6924F0F /* HttpServiceTest.swift in Sources */,
 				75F7974DE59D3DE84EB166E9 /* PostFormUrlEncodedRequest.swift in Sources */,
-				C2EB054E26304713004EF82A /* XennConfigTest.swift in Sources */,
+				C2EB054E26304713004EF82A /* RBConfigTest.swift in Sources */,
 				75F792287F3DC850963A0BEE /* HttpTask.swift in Sources */,
 				75F79A1CCEC0CF0706B6F4B7 /* PostFormUrlEncodedRequestTest.swift in Sources */,
 				35F2FB042703988D00EE41AD /* InAppNotificationResponse.swift in Sources */,
@@ -683,7 +683,7 @@
 				C256F80D25C4259B00240F79 /* JsonDeserializerServiceTest.swift in Sources */,
 				D3A8FCEE9365EFCF2872B5A7 /* FeedbackEventTest.swift in Sources */,
 				D3A8F470ECDD24C3F748B3DA /* PostJsonEncodedRequest.swift in Sources */,
-				C2B7CB97263039B800DAB8CE /* XennConfig.swift in Sources */,
+				C2B7CB97263039B800DAB8CE /* RBConfig.swift in Sources */,
 				D3A8FAAFE5131F29783596E2 /* PostJsonEncodedRequestTest.swift in Sources */,
 				D3A8FBEE9FBC3C0C5E78106E /* EcommerceEventProcessorHandler.swift in Sources */,
 				D3A8FB41601748D1AC228340 /* EcommerceEventProcessorHandlerTest.swift in Sources */,
@@ -847,7 +847,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.xenn.harray-ios-sdk";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.rb.harray-ios-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -873,7 +873,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.xenn.harray-ios-sdk";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.rb.harray-ios-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -895,7 +895,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.xenn.harray-ios-sdkTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.rb.harray-ios-sdkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -916,7 +916,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.xenn.harray-ios-sdkTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.rb.harray-ios-sdkTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

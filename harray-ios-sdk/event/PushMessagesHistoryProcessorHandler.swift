@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by Bay Batu on 29.09.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -29,7 +29,7 @@ import Foundation
     public func getPushMessagesHistory(size: Int8,
                                        callback: @escaping (Array<Dictionary<String, String>>?) -> Void) -> Void {
         guard sessionContextHolder.getMemberId() != nil else {
-            preconditionFailure("memberId cannot be nil for push messages history. Use Xennio.login(memberId) method first.")
+            preconditionFailure("memberId cannot be nil for push messages history. Use RB.login(memberId) method first.")
         }
         var params = Dictionary<String, String>()
         params["sdkKey"] = sdkKey

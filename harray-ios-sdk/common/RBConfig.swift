@@ -1,40 +1,40 @@
 //
-//  XennConfig.swift
+//  RBConfig.swift
 //  harray-ios-sdk
 //
 //  Created by Bay Batu on 20.04.2021.
-//  Copyright © 2021 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
 
-@objc public class XennConfig: NSObject {
+@objc public class RBConfig: NSObject {
     
     private let sdkKey: String
-    private var apiUrl: String = Constants.XENN_API_URL.rawValue
-    private var collectorUrl: String = Constants.XENN_COLLECTOR_URL.rawValue
+    private var apiUrl: String = Constants.RB_API_URL.rawValue
+    private var collectorUrl: String = Constants.RB_COLLECTOR_URL.rawValue
     private var inAppNotificationLinkClickHandler: ((_ deepLink: String) -> ())? = nil
     
     private init(sdkKey: String) {
         self.sdkKey = sdkKey
     }
     
-    public static func create(sdkKey: String) -> XennConfig {
-        return XennConfig(sdkKey: sdkKey)
+    public static func create(sdkKey: String) -> RBConfig {
+        return RBConfig(sdkKey: sdkKey)
     }
     
-    public func collectorUrl(url: String) -> XennConfig {
-        self.collectorUrl = XennConfig.getValidUrl(url: url)
+    public func collectorUrl(url: String) -> RBConfig {
+        self.collectorUrl = RBConfig.getValidUrl(url: url)
         return self
     }
     
-    public func inAppNotificationLinkClickHandler(_ handler: ((_ deepLink: String) -> ())? = nil) -> XennConfig {
+    public func inAppNotificationLinkClickHandler(_ handler: ((_ deepLink: String) -> ())? = nil) -> RBConfig {
         self.inAppNotificationLinkClickHandler = handler
         return self
     }
 
-    public func apiUrl(url: String) -> XennConfig {
-        self.apiUrl = XennConfig.getValidUrl(url: url)
+    public func apiUrl(url: String) -> RBConfig {
+        self.apiUrl = RBConfig.getValidUrl(url: url)
         return self
     }
 

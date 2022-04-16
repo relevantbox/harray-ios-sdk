@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 22.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

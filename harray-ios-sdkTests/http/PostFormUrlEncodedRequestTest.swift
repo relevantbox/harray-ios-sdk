@@ -1,6 +1,6 @@
 //
 // Created by YILDIRIM ADIGÜZEL on 27.04.2020.
-// Copyright (c) 2020 xennio. All rights reserved.
+// Copyright (c) 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest
@@ -8,7 +8,7 @@ import XCTest
 class PostFormUrlEncodedRequestTest: XCTestCase {
 
     func test_it_should_construct_post_url_encoded_request() {
-        let postFormUrlEncodedRequest = PostFormUrlEncodedRequest(payload: "payload", endpoint: "http://c.xenn.io")
+        let postFormUrlEncodedRequest = PostFormUrlEncodedRequest(payload: "payload", endpoint: "http://c.rb.io")
 
         let urlRequest = postFormUrlEncodedRequest.getUrlRequest()
         let expectedBody = "e=payload".data(using: String.Encoding.ascii, allowLossyConversion: false)

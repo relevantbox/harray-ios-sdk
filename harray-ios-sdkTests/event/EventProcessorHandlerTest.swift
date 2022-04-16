@@ -3,7 +3,7 @@
 //  harray-ios-sdkTests
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import XCTest
@@ -11,15 +11,15 @@ import XCTest
 class EventProcessorHandlerTest: XCTestCase {
 
     func test_it_should_construct_page_view_event_and_make_api_call() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
 
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService, chainProcessorHandler: chainProcessorHandler)
@@ -43,14 +43,14 @@ class EventProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_construct_page_view_and_append_extra_params_to_event_and_make_api_call() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
 
         let entitySerializerService = CapturingEntitySerializerService.init()
@@ -77,14 +77,14 @@ class EventProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_page_view() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -102,8 +102,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -133,8 +133,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -160,14 +160,14 @@ class EventProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_action_result() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -185,8 +185,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -216,8 +216,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -243,14 +243,14 @@ class EventProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_impression() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -263,14 +263,14 @@ class EventProcessorHandlerTest: XCTestCase {
 
 
     func test_it_should_construct_custom_event_and_make_api_call() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -295,14 +295,14 @@ class EventProcessorHandlerTest: XCTestCase {
     }
 
     func test_it_should_not_invoke_http_service_when_serializer_service_has_error_on_custom_event() {
-        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "xennio"])
+        let sessionContextHolder = FakeSessionContextHolder().withExtraParameters(["utm_medium": "rbio"])
         let applicationContextHolder = FakeApplicationContextHolder(userDefaults: InitializedUserDefaults())
         let chainProcessorHandler = ChainProcessorHandler()
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -320,8 +320,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)
@@ -356,8 +356,8 @@ class EventProcessorHandlerTest: XCTestCase {
         let httpService = FakeHttpService(
             sdkKey: "sdk-key",
             session: FakeUrlSession(),
-            collectorUrl: "https://c.xenn.io",
-            apiUrl: "https://api.xenn.io"
+            collectorUrl: "https://c.rb.io",
+            apiUrl: "https://api.rb.io"
         )
         let entitySerializerService = CapturingEntitySerializerService.init()
         let eventProcessorHandler = EventProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, entitySerializerService: entitySerializerService,chainProcessorHandler: chainProcessorHandler)

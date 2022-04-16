@@ -1,6 +1,6 @@
 //
 // Created by YILDIRIM ADIGÜZEL on 22.04.2020.
-// Copyright (c) 2020 xennio. All rights reserved.
+// Copyright (c) 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -59,7 +59,7 @@ import UIKit
         }
     }
     
-    @objc public func isXennioNotification(request: UNNotificationRequest) -> Bool {
+    @objc public func isRBNotification(request: UNNotificationRequest) -> Bool {
         let source = request.content.userInfo[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
         if source != nil {
             let pushChannelId = source as? String
@@ -89,7 +89,7 @@ import UIKit
                                 contentHandler(bestAttemptContent)
                             } catch {
                                 contentHandler(bestAttemptContent)
-                                XennioLogger.log(message: "unable to handle push notification image")
+                                RBLogger.log(message: "unable to handle push notification image")
                             }
                         }
                     }

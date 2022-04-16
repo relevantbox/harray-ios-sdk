@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -29,7 +29,7 @@ import Foundation
     }
 
     @objc public func pageView(pageType: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = XennEvent.create(name: "PV", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "PV", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
@@ -44,7 +44,7 @@ import Foundation
     }
 
     @objc public func actionResult(type: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = XennEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "type", value: type)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
@@ -58,7 +58,7 @@ import Foundation
     }
 
     @objc public func impression(pageType: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = XennEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
@@ -68,7 +68,7 @@ import Foundation
     }
 
     @objc public func custom(eventName: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = XennEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
@@ -77,7 +77,7 @@ import Foundation
     }
 
     @objc func savePushToken(deviceToken: String) {
-        let pageViewEvent = XennEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")
                 .addBody(key: "type", value: "iosToken")
@@ -89,7 +89,7 @@ import Foundation
     }
     
     func removeTokenAssociation(deviceToken: String) {
-        let pageViewEvent = XennEvent.create(name: "TR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let pageViewEvent = RBEvent.create(name: "TR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")
                 .addBody(key: "type", value: "iosToken")

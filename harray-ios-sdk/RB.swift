@@ -1,20 +1,20 @@
 //
-//  Xennio.swift
+//  RB.swift
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-@objc public final class Xennio: NSObject {
+@objc public final class RB: NSObject {
 
-    static var instance: Xennio?
+    static var instance: RB?
 
     let sessionContextHolder: SessionContextHolder
-    private let xennConfig: XennConfig
+    private let rbConfig: RBConfig
     private var pushNotificationToken: String = ""
     private let applicationContextHolder: ApplicationContextHolder
     private let eventProcessorHandler: EventProcessorHandler
@@ -25,7 +25,7 @@ import UIKit
     private let browsingHistoryProcessorHandler: BrowsingHistoryProcessorHandler
     private let pushMessagesHistoryProcessorHandler: PushMessagesHistoryProcessorHandler
 
-    private init(xennConfig: XennConfig,
+    private init(rbConfig: RBConfig,
                  sessionContextHolder: SessionContextHolder,
                  applicationContextHolder: ApplicationContextHolder,
                  eventProcessorHandler: EventProcessorHandler,
@@ -42,17 +42,17 @@ import UIKit
         self.sdkEventProcessorHandler = sdkEventProcessorHandler
         self.notificationProcessorHandler = notificationProcessorHandler
         self.ecommerceEventProcessorHandler = ecommerceEventProcessorHandler
-        self.xennConfig = xennConfig
+        self.rbConfig = rbConfig
         self.recommendationProcessorHandler = recommendationProcessorHandler
         self.browsingHistoryProcessorHandler = browsingHistoryProcessorHandler
         self.pushMessagesHistoryProcessorHandler = pushMessagesHistoryProcessorHandler
     }
     
     @available(iOSApplicationExtension,unavailable)
-    @objc public class func configure(xennConfig: XennConfig) {
+    @objc public class func configure(rbConfig: RBConfig) {
         let sessionContextHolder = SessionContextHolder()
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
-        let httpService = HttpService(sdkKey: xennConfig.getSdkKey(), session: URLSession.shared, collectorUrl: xennConfig.getCollectorUrl(), apiUrl: xennConfig.getApiUrl())
+        let httpService = HttpService(sdkKey: rbConfig.getSdkKey(), session: URLSession.shared, collectorUrl: rbConfig.getCollectorUrl(), apiUrl: rbConfig.getApiUrl())
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main, locale: Locale.current)
         let chainProcessorHandler = ChainProcessorHandler()
@@ -62,16 +62,16 @@ import UIKit
         let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
         let ecommerceEventProcessorHandler = EcommerceEventProcessorHandler(eventProcessorHandler: eventProcessorHandler)
         let jsonDeserializerService = JsonDeserializerService()
-        let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
-        let browsingHistoryProcessorHandler = BrowsingHistoryProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
-        let pushMessagesHistoryProcessorHandler = PushMessagesHistoryProcessorHandler(sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: xennConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        let recommendationProcessorHandler = RecommendationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: rbConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        let browsingHistoryProcessorHandler = BrowsingHistoryProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: rbConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
+        let pushMessagesHistoryProcessorHandler = PushMessagesHistoryProcessorHandler(sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: rbConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         
         let inAppNotificationProcessorHandler =
-            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, eventProcessorHandler: eventProcessorHandler, xennConfig: xennConfig, jsonDeserializerService: jsonDeserializerService)
+            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, eventProcessorHandler: eventProcessorHandler, rbConfig: rbConfig, jsonDeserializerService: jsonDeserializerService)
         
         chainProcessorHandler.addHandler(handler: inAppNotificationProcessorHandler)
 
-        instance = Xennio(xennConfig: xennConfig,
+        instance = RB(rbConfig: rbConfig,
                           sessionContextHolder: sessionContextHolder,
                           applicationContextHolder: applicationContextHolder,
                           eventProcessorHandler: eventProcessorHandler,
@@ -85,39 +85,39 @@ import UIKit
     }
 
 
-    class func getInstance() -> Xennio {
+    class func getInstance() -> RB {
         return instance!
     }
 
     @objc public class func eventing() -> EventProcessorHandler {
-        let xennioInstance = getInstance()
-        let sessionContextHolder = xennioInstance.sessionContextHolder
+        let rbioInstance = getInstance()
+        let sessionContextHolder = rbioInstance.sessionContextHolder
         if (sessionContextHolder.getSessionState() != SessionState.SESSION_STARTED) {
-            xennioInstance.sdkEventProcessorHandler.sessionStart()
+            rbioInstance.sdkEventProcessorHandler.sessionStart()
             sessionContextHolder.startSession()
-            if (xennioInstance.applicationContextHolder.isNewInstallation()){
-                xennioInstance.sdkEventProcessorHandler.newInstallation()
-                xennioInstance.applicationContextHolder.setInstallationCompleted()
+            if (rbioInstance.applicationContextHolder.isNewInstallation()){
+                rbioInstance.sdkEventProcessorHandler.newInstallation()
+                rbioInstance.applicationContextHolder.setInstallationCompleted()
             }
         }
-        return xennioInstance.eventProcessorHandler
+        return rbioInstance.eventProcessorHandler
     }
 
     @objc public class func notifications() -> NotificationProcessorHandler {
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
-        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared, collectorUrl: Constants.XENN_COLLECTOR_URL.rawValue,
-                                      apiUrl: Constants.XENN_API_URL.rawValue)
+        let httpService = HttpService(sdkKey: "feedback", session: URLSession.shared, collectorUrl: Constants.RB_COLLECTOR_URL.rawValue,
+                                      apiUrl: Constants.RB_API_URL.rawValue)
         return NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
     }
 
     @objc public class func login(memberId: String) {
-        let xennInstance = getInstance()
+        let rbInstance = getInstance()
         let sessionContextHolder = getInstance().sessionContextHolder
         if ("" != memberId) && sessionContextHolder.getMemberId() != memberId {
             sessionContextHolder.login(memberId: memberId)
             sessionContextHolder.restartSession()
             if "" != getInstance().pushNotificationToken {
-                xennInstance.eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
+                rbInstance.eventProcessorHandler.savePushToken(deviceToken: getInstance().pushNotificationToken)
             }
         }
     }

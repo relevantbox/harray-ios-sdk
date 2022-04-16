@@ -3,7 +3,7 @@
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
@@ -32,7 +32,7 @@ class HttpService {
             if httpResult.isValidStatus() {
                 completionHandler(responseHandler(httpResult))
             } else {
-                XennioLogger.log(message: "getApiRequest error. Detail: \(httpResult.toString())")
+                RBLogger.log(message: "getApiRequest error. Detail: \(httpResult.toString())")
             }
         }
     }
@@ -40,7 +40,7 @@ class HttpService {
     func postFormUrlEncoded(payload: String?) {
         postFormUrlEncoded(payload: payload) { httpResult in
             if httpResult.isSuccess() {
-                XennioLogger.log(message: "Xenn collector returned \(httpResult.getStatusCode())")
+                RBLogger.log(message: "Xenn collector returned \(httpResult.getStatusCode())")
             } else {
                 // TO-DO: Retry logic and more error handling
             }
@@ -50,7 +50,7 @@ class HttpService {
     func postJsonEncoded(payload: String?, path: String) {
         postJsonEncoded(payload: payload, path: path) { httpResult in
             if httpResult.isSuccess() {
-                XennioLogger.log(message: "Xenn path returned \(httpResult.getStatusCode())")
+                RBLogger.log(message: "Xenn path returned \(httpResult.getStatusCode())")
             } else {
                 // TO-DO: Retry logic and more error handling
             }

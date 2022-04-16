@@ -1,15 +1,15 @@
 //
-//  XennioLogger.swift
+//  RBLogger.swift
 //  harray-ios-sdk
 //
 //  Created by YILDIRIM ADIGÜZEL on 21.04.2020.
-//  Copyright © 2020 xennio. All rights reserved.
+//  Copyright © 2022 relevantboxio. All rights reserved.
 //
 
 import Foundation
 import os
 
-class XennioLogger {
+class RBLogger {
     private init() {
 
     }
