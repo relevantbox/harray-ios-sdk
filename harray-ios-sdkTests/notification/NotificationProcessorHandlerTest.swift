@@ -44,7 +44,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
-        notificationProcessorHandler.pushMessageOpened(pushContent: ["source": "rbio", "pushId": "123123", "campaignId": "campaign", "campaignDate": "campaignDate"])
+        notificationProcessorHandler.pushMessageOpened(pushContent: ["source": "relevantboxio", "pushId": "123123", "campaignId": "campaign", "campaignDate": "campaignDate"])
 
         let captured = entitySerializerService.getCapturedEvent()
 
@@ -139,7 +139,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         let content = UNMutableNotificationContent()
         content.title = "Alert!"
         content.body = "Something happened"
-        content.userInfo = ["source": "rbio"]
+        content.userInfo = ["source": "relevantboxio"]
 
         let request = UNNotificationRequest(
           identifier: "id",
