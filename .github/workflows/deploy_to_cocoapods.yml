@@ -1,15 +1,40 @@
-on: workflow_dispatch
+name: Release latest tag
+on:
+  workflow_dispatch:
+  inputs:
+    pod_version:
+      description: 'Pod Version'
+      required: true
+      default: '3.0.0'
 jobs:
   deploy-to-cocoapods:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Create Podspec file
+      id: create-podspec
+      run: |
+        cat << 'EOF' > RB.podspec
+        Pod::Spec.new do |spec|
+
+          spec.name          = "RB"
+          spec.version       = ${{ github.event.inputs.pod_version }}
+          spec.swift_version = "4.2"
+          spec.summary       = "RB unified engine IOS SDK"
+          spec.description   = "RB unified engine official IOS SDK"
+          spec.platform      = :ios, '8.0'
+          spec.ios.deployment_target = "10.0"
+          spec.homepage      = "https://github.com/relevantbox/harray-ios-sdk"
+          spec.license       = { :type => "MIT", :file => "LICENSE" }
+          spec.author        = { "RB Development Team" => "developer@relevantbox.io" }
+          spec.source        = { :git => "https://github.com/relevantbox/harray-ios-sdk.git", :tag => "#{spec.version}" }
+          spec.source_files  = "harray-ios-sdk/**/*.{h,m,swift,xib}"
+          spec.resources = ['harray-ios-sdk/**/*.png']
+        end
+
+        EOF
     - name: Deploy to Cocoapods
       run: |
-        set -eo pipefail
-        LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-        echo "LIB_VERSION=$LIB_VERSION" >> $GITHUB_ENV
-        pod lib lint --allow-warnings
-        pod trunk push --allow-warnings
+        pod trunk push RB.podspec
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
