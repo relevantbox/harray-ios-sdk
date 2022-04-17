@@ -1,11 +1,11 @@
 name: Release latest tag
 on:
   workflow_dispatch:
-  inputs:
-    pod_version:
-      description: 'Pod Version'
-      required: true
-      default: '3.0.0'
+    inputs:
+      pod_version:
+        description: 'Pod Version'
+        required: true
+        default: '3.0.0'
 jobs:
   deploy-to-cocoapods:
     runs-on: macOS-latest
