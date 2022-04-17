@@ -14,7 +14,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pods-
     - name: CocoaPod Install
-      run: pod spec lint         
+      run: |
+        pod trunk register yildirim@relevantbox.io 'Yildirim Adiguzel' --description='Github Actions'
+        pod spec lint         
     - name: Build
       run: xcodebuild -scheme harray-ios-sdk -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'
     - name: Test
