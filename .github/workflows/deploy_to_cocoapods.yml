@@ -18,7 +18,7 @@ jobs:
         Pod::Spec.new do |spec|
 
           spec.name          = "RB"
-          spec.version       = ${{ github.event.inputs.pod_version }}
+          spec.version       = "${{ github.event.inputs.pod_version }}"
           spec.swift_version = "4.2"
           spec.summary       = "RB unified engine IOS SDK"
           spec.description   = "RB unified engine official IOS SDK"
