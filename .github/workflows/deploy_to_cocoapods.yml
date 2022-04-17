@@ -1,23 +1,4 @@
-on:
-  workflow_dispatch:
-    inputs:
-      runtime_environment:
-        description: 'Runtime Environment'
-        required: true
-        default: 'STAGING'
-      cron_expression:
-        description: 'Cron Expression'
-        required: true
-        default: '0 1 * * *'
-      method:
-        description: 'Method to invoke'
-        required: true
-        default: 'method_to_invoke'
-      version:
-        description: 'Docker version'
-        required: true
-        default: 'latest'  
-
+on: workflow_dispatch
 jobs:
   deploy-to-cocoapods:
     runs-on: macOS-latest
