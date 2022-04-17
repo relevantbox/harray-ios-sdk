@@ -1,12 +1,25 @@
-name: deploy_to_cocoapods
-
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
+    inputs:
+      runtime_environment:
+        description: 'Runtime Environment'
+        required: true
+        default: 'STAGING'
+      cron_expression:
+        description: 'Cron Expression'
+        required: true
+        default: '0 1 * * *'
+      method:
+        description: 'Method to invoke'
+        required: true
+        default: 'method_to_invoke'
+      version:
+        description: 'Docker version'
+        required: true
+        default: 'latest'  
 
 jobs:
-  build:
+  deploy-to-cocoapods:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
