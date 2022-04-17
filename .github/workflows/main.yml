@@ -12,12 +12,16 @@ jobs:
         path: Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
         restore-keys: |
-          ${{ runner.os }}-pods-
-    - name: CocoaPod Install
-      run: |
-        pod trunk register yildirim@relevantbox.io 'Yildirim Adiguzel' --description='Github Actions'
-        pod spec lint         
+          ${{ runner.os }}-pods-  
     - name: Build
       run: xcodebuild -scheme harray-ios-sdk -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'
     - name: Test
       run: xcodebuild -scheme harray-ios-sdk -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' test
+    - name: Deploy to Cocoapods
+      run: |
+        set -eo pipefail
+        export LIB_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+        pod lib lint --allow-warnings
+        pod trunk push --allow-warnings
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}

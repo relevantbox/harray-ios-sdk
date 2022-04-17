@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name          = "RB"
-  spec.version       = "2.5.20"
+  spec.version       = ENV['LIB_VERSION'] || '1.0'
   spec.swift_version = "4.2"
   spec.summary       = "RB unified engine IOS SDK"
   spec.description   = "RB unified engine official IOS SDK"
