@@ -94,7 +94,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
         httpService.givenPostWithPayload(callWith: "serialized_event")
 
-        notificationProcessorHandler.pushMessageOpened(pushContent: ["source": "mennio", "nonce": "1", "campaignId": "campaignId", "customerId": "customerId])
+        notificationProcessorHandler.pushMessageOpened(pushContent: ["source": "mennio", "nonce": "1", "campaignId": "campaignId", "customerId": "customerId"])
 
         let captured = entitySerializerService.getCapturedEvent()
 
