@@ -18,13 +18,13 @@ import UIKit
     }
 
     @objc public func pushMessageDelivered(pushContent: Dictionary<AnyHashable, Any>) {
-        let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
+        let customerId = getContentItem(key: Constants.CUSTOMER_ID_KEY.rawValue, pushContent: pushContent)
         let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
-        let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
+        let campaignNonce = getContentItem(key: Constants.CAMPAIGN_NONCE.rawValue, pushContent: pushContent)
         let pushReceivedEvent = FeedbackEvent.create(name: "d")
-                .addParameter(key: "ci", value: campaignId!)
-                .addParameter(key: "pi", value: pushId!)
-                .addParameter(key: "cd", value: campaignDate!)
+                .addParameter(key: "nonce", value: campaignNonce!)
+                .addParameter(key: "campaignId", value: campaignId!)
+                .addParameter(key: "customerId", value: customerId!)
                 .toMap()
         let serializedEvent = entitySerializerService.serializeToJson(event: pushReceivedEvent)
         httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
@@ -35,13 +35,13 @@ import UIKit
         if source != nil {
             let pushChannelId = source as? String
             if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
-                let pushId = getContentItem(key: Constants.PUSH_ID_KEY.rawValue, pushContent: pushContent)
+                let customerId = getContentItem(key: Constants.CUSTOMER_ID_KEY.rawValue, pushContent: pushContent)
                 let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
-                let campaignDate = getContentItem(key: Constants.CAMPAIGN_DATE_KEY.rawValue, pushContent: pushContent)
+                let campaignNonce = getContentItem(key: Constants.CAMPAIGN_NONCE.rawValue, pushContent: pushContent)
                 let pushOpenedEvent = FeedbackEvent.create(name: "o")
-                        .addParameter(key: "ci", value: campaignId!)
-                        .addParameter(key: "pi", value: pushId!)
-                        .addParameter(key: "cd", value: campaignDate!)
+                        .addParameter(key: "nonce", value: campaignNonce!)
+                        .addParameter(key: "campaignId", value: campaignId!)
+                        .addParameter(key: "customerId", value: customerId!)
                         .toMap()
                 let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
                 httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)

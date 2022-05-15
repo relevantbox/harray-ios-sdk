@@ -11,6 +11,7 @@ class FeedbackEvent {
     class func create(name: String) -> FeedbackEvent {
         let feedbackEvent = FeedbackEvent()
         feedbackEvent.event["n"] = name
+        feedbackEvent.event["pushType"] = "iosAppPush"
         return feedbackEvent
     }
 

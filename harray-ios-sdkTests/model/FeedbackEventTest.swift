@@ -19,6 +19,7 @@ class FeedbackEventTest: XCTestCase {
         let feedbackEventMap = feedbackEvent.toMap()
 
         XCTAssertTrue(feedbackType == feedbackEventMap["n"] as! String)
+        XCTAssertTrue("iosAppPush" == feedbackEventMap["pushType"] as! String)
         XCTAssertTrue(1 == feedbackEventMap["body1"] as! Int)
         XCTAssertTrue("value1" == feedbackEventMap["header2"] as! String)
         XCTAssertTrue("value2" == feedbackEventMap["header1"] as! String)
