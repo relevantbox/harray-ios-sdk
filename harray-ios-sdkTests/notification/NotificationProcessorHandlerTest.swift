@@ -51,7 +51,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
 
         XCTAssertFalse(httpService.hasError)
 
-        XCTAssertTrue("d" == captured["n"] as! String)
+        XCTAssertTrue("o" == captured["n"] as! String)
         XCTAssertTrue("campaignId" == captured["campaignId"] as! String)
         XCTAssertTrue("customerId" == captured["customerId"] as! String)
         XCTAssertTrue("1" == captured["nonce"] as! String)
