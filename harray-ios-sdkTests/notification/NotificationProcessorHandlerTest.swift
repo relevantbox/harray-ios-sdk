@@ -141,7 +141,7 @@ class NotificationProcessorHandlerTest: XCTestCase {
         let content = UNMutableNotificationContent()
         content.title = "Alert!"
         content.body = "Something happened"
-        content.userInfo = ["source": "relevantboxio"]
+        content.userInfo = ["source": "relevantbox"]
 
         let request = UNNotificationRequest(
           identifier: "id",
