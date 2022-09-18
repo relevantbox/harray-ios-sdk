@@ -57,30 +57,6 @@ class NotificationProcessorHandlerTest: XCTestCase {
         XCTAssertTrue("1" == captured["nonce"] as! String)
         XCTAssertTrue("iosAppPush" == captured["pushType"] as! String)
     }
-
-    func test_it_should_not_construct_push_opened_event_and_make_api_call_when_source_is_defined_other_than_rbio() {
-        let httpService = FakeHttpService(
-            sdkKey: "sdk-key",
-            session: FakeUrlSession(),
-            collectorUrl: "https://c.rb.io",
-            apiUrl: "https://api.rb.io"
-        )
-        let entitySerializerService = CapturingEntitySerializerService.init()
-        let notificationProcessorHandler = NotificationProcessorHandler(httpService: httpService, entitySerializerService: entitySerializerService)
-        entitySerializerService.givenSerializeReturns(callWith: TestUtils.anyDictionary(), expect: "serialized_event")
-        httpService.givenPostWithPayload(callWith: "serialized_event")
-
-        notificationProcessorHandler.pushMessageOpened(pushContent: ["source": "mennio", "nonce": "1", "campaignId": "campaignId", "customerId": "customerId"])
-
-        let captured = entitySerializerService.getCapturedEvent()
-
-        XCTAssertFalse(httpService.hasError)
-
-        XCTAssertNil(captured["n"])
-        XCTAssertNil(captured["nonce"])
-        XCTAssertNil(captured["campaignId"])
-        XCTAssertNil(captured["customerId"])
-    }
     
     func test_it_should_return_false_when_notification_is_not_rb_io_notification() {
         let httpService = FakeHttpService(
