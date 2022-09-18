@@ -31,22 +31,16 @@ import UIKit
     }
 
     @objc public func pushMessageOpened(pushContent: Dictionary<AnyHashable, Any>) {
-        let source = pushContent[Constants.PUSH_PAYLOAD_SOURCE.rawValue]
-        if source != nil {
-            let pushChannelId = source as? String
-            if Constants.PUSH_CHANNEL_ID.rawValue == pushChannelId! {
-                let customerId = getContentItem(key: Constants.CUSTOMER_ID_KEY.rawValue, pushContent: pushContent)
-                let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
-                let campaignNonce = getContentItem(key: Constants.CAMPAIGN_NONCE.rawValue, pushContent: pushContent)
-                let pushOpenedEvent = FeedbackEvent.create(name: "o")
-                        .addParameter(key: "nonce", value: campaignNonce!)
-                        .addParameter(key: "campaignId", value: campaignId!)
-                        .addParameter(key: "customerId", value: customerId!)
-                        .toMap()
-                let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
-                httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
-            }
-        }
+        let customerId = getContentItem(key: Constants.CUSTOMER_ID_KEY.rawValue, pushContent: pushContent)
+        let campaignId = getContentItem(key: Constants.CAMPAIGN_ID_KEY.rawValue, pushContent: pushContent)
+        let campaignNonce = getContentItem(key: Constants.CAMPAIGN_NONCE.rawValue, pushContent: pushContent)
+        let pushOpenedEvent = FeedbackEvent.create(name: "o")
+                .addParameter(key: "nonce", value: campaignNonce!)
+                .addParameter(key: "campaignId", value: campaignId!)
+                .addParameter(key: "customerId", value: customerId!)
+                .toMap()
+        let serializedEvent = entitySerializerService.serializeToJson(event: pushOpenedEvent)
+        httpService.postJsonEncoded(payload: serializedEvent, path: Constants.PUSH_FEED_BACK_PATH.rawValue)
     }
 
     @objc public func handlePushNotification(userInfo: Dictionary<AnyHashable, Any>) {
