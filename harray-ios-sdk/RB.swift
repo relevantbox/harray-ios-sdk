@@ -53,6 +53,7 @@ import UIKit
         let sessionContextHolder = SessionContextHolder()
         let applicationContextHolder = ApplicationContextHolder(userDefaults: UserDefaults.standard)
         let httpService = HttpService(sdkKey: rbConfig.getSdkKey(), session: URLSession.shared, collectorUrl: rbConfig.getCollectorUrl(), apiUrl: rbConfig.getApiUrl())
+        let inAppNotificationsHttpService = HttpService(sdkKey: rbConfig.getSdkKey(), session: URLSession.shared, collectorUrl: rbConfig.getCollectorUrl(), apiUrl: rbConfig.getInAppNotificationsUrl())
         let entitySerializerService = EntitySerializerService(encodingService: EncodingService(), jsonSerializerService: JsonSerializerService())
         let deviceService = DeviceService(bundle: Bundle.main, uiDevice: UIDevice.current, uiScreen: UIScreen.main, locale: Locale.current)
         let chainProcessorHandler = ChainProcessorHandler()
@@ -67,7 +68,7 @@ import UIKit
         let pushMessagesHistoryProcessorHandler = PushMessagesHistoryProcessorHandler(sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: rbConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         
         let inAppNotificationProcessorHandler =
-            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: httpService, eventProcessorHandler: eventProcessorHandler, rbConfig: rbConfig, jsonDeserializerService: jsonDeserializerService)
+            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: inAppNotificationsHttpService, eventProcessorHandler: eventProcessorHandler, rbConfig: rbConfig, jsonDeserializerService: jsonDeserializerService)
         
         chainProcessorHandler.addHandler(handler: inAppNotificationProcessorHandler)
 

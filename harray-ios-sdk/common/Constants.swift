@@ -22,4 +22,5 @@ enum Constants: String {
     case APPLE = "Apple"
     case RB_API_URL = "https://api.relevantbox.io"
     case RB_COLLECTOR_URL = "https://c.relevantbox.io"
+    case RB_IN_APP_NOTIFICATIONS_URL = "https://inapp.relevantbox.io"
 }
