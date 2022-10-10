@@ -136,7 +136,7 @@ class SessionContextHolderTest: XCTestCase {
 
     func test_it_should_update_external_parameters_with_any_hashable() {
         let sessionContextHolder = SessionContextHolder()
-        let externalParameters: Dictionary<AnyHashable, Any> = [
+        let externalParameters: Dictionary<String, Any> = [
             "a": "b",
             "c": "e",
             "d": "f",
@@ -149,7 +149,7 @@ class SessionContextHolderTest: XCTestCase {
             "utm_campaign": "utm_campaign",
             "utm_term": "utm_term",
             "utm_content": "utm_content",
-            1: "asa"
+            "1": "asa"
 
         ]
         sessionContextHolder.updateExternalParameters(data: externalParameters)

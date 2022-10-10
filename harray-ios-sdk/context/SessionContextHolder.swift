@@ -16,7 +16,7 @@ class SessionContextHolder {
     private var lastActivityTime: Int64
     private var sessionState: SessionState = SessionState.SESSION_INITIALIZED
     private var externalParameters: Dictionary<String, Any> = Dictionary<String, Any>()
-    private let externalParameterKeys: Array<String> = ["campaignId", "campaignDate", "pushId", "url", "gclid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+    private let forbiddenExternalParameterKeys: Array<String> = ["a", "b", "c", "d", "ts", "n", "s", "p"]
 
     init() {
         let now = ClockUtils.getTime()
@@ -55,19 +55,15 @@ class SessionContextHolder {
     }
 
     func updateExternalParameters(data: Dictionary<String, Any>) {
-        for eachItem in self.externalParameterKeys {
-            if data[eachItem] != nil {
-                self.externalParameters[eachItem] = data[eachItem]
+        
+        var tempExternalParameters : Dictionary<String, Any> = Dictionary<String, Any>()
+        for eachKey in data.keys {
+            if !forbiddenExternalParameterKeys.contains(eachKey) {
+                tempExternalParameters[eachKey] = data[eachKey]
             }
         }
-    }
-
-    func updateExternalParameters(data: Dictionary<AnyHashable, Any>) {
-        for eachItem in self.externalParameterKeys {
-            if data[eachItem] != nil {
-                self.externalParameters[eachItem] = data[eachItem]
-            }
-        }
+        self.externalParameters = tempExternalParameters
+        
     }
 
     func getSessionId() -> String {
