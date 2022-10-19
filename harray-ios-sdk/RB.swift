@@ -137,6 +137,7 @@ import UIKit
 
     @objc public class func synchronizeWith(externalParameters: Dictionary<String, Any>) {
         getInstance().sessionContextHolder.updateExternalParameters(data: externalParameters)
+        getInstance().sessionContextHolder.restartSession()
     }
 
     @objc public class func ecommerce() -> EcommerceEventProcessorHandler {
