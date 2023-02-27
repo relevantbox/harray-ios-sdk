@@ -29,14 +29,13 @@ import Foundation
     }
 
     @objc public func pageView(pageType: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = RBEvent.create(name: "PV", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: "PV", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
-                .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event.toMap())
         httpService.postFormUrlEncoded(payload: serializedEvent)
-        chainProcessorHandler.callAll(pageType: pageType)
+        chainProcessorHandler.callAll(event: event)
     }
 
     @objc public func actionResult(type: String) {
@@ -44,12 +43,12 @@ import Foundation
     }
 
     @objc public func actionResult(type: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = RBEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: "AR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "type", value: type)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
@@ -58,45 +57,45 @@ import Foundation
     }
 
     @objc public func impression(pageType: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = RBEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addBody(key: "pageType", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
     @objc public func custom(eventName: String, params: Dictionary<String, Any>) {
-        let pageViewEvent = RBEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: eventName, persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 
     @objc func savePushToken(deviceToken: String) {
-        let pageViewEvent = RBEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: "Collection", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")
                 .addBody(key: "type", value: "iosToken")
                 .addBody(key: "appType", value: "iosAppPush")
                 .addBody(key: "deviceToken", value: deviceToken)
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
     
     func removeTokenAssociation(deviceToken: String) {
-        let pageViewEvent = RBEvent.create(name: "TR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let event = RBEvent.create(name: "TR", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "name", value: "pushToken")
                 .addBody(key: "type", value: "iosToken")
                 .addBody(key: "appType", value: "iosAppPush")
                 .addBody(key: "deviceToken", value: deviceToken)
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: event)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
 }

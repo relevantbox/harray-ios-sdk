@@ -13,7 +13,7 @@ import Foundation
     private let sdkKey: String
     private var apiUrl: String = Constants.RB_API_URL.rawValue
     private var collectorUrl: String = Constants.RB_COLLECTOR_URL.rawValue
-    private var inAppNotificationsUrl: String = Constants.RB_IN_APP_NOTIFICATIONS_URL.rawValue
+    private var inAppNotificationsUrl: String = Constants.RB_API_URL.rawValue
     private var inAppNotificationLinkClickHandler: ((_ deepLink: String) -> ())? = nil
     
     private init(sdkKey: String) {

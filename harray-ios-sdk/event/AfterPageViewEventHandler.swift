@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AfterPageViewEventHandler {
-    func callAfter(pageType: String)
+    func callAfter(event: RBEvent)
 }

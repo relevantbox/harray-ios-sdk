@@ -15,9 +15,9 @@ public class ChainProcessorHandler {
         self.handlers.append(handler)
     }
     
-    func callAll(pageType: String){
+    func callAll(event: RBEvent){
         for eachHandler in handlers {
-            eachHandler.callAfter(pageType: pageType)
+            eachHandler.callAfter(event: event)
         }
     }
 }

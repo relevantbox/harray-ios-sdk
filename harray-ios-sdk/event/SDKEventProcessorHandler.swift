@@ -29,7 +29,7 @@ class SDKEventProcessorHandler {
     }
 
     func sessionStart() {
-        let pageViewEvent = RBEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
+        let sessionStartEvent = RBEvent.create(name: "SS", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
                 .addHeader(key: "sv", value: applicationContextHolder.getSdkVersion())
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .addBody(key: "os", value: Constants.IOS.rawValue)
@@ -43,9 +43,10 @@ class SDKEventProcessorHandler {
                 .addBody(key: "sw", value: deviceService.getScreenWidth())
                 .addBody(key: "sh", value: deviceService.getScreenHeight())
                 .addBody(key: "ln", value: deviceService.getLanguage())
+                .addBody(key: "rt", value: applicationContextHolder.isNewInstallation())
                 .appendExtra(params: sessionContextHolder.getExternalParameters())
                 .toMap()
-        let serializedEvent = entitySerializerService.serializeToBase64(event: pageViewEvent)
+        let serializedEvent = entitySerializerService.serializeToBase64(event: sessionStartEvent)
         httpService.postFormUrlEncoded(payload: serializedEvent)
     }
     

@@ -68,7 +68,7 @@ import UIKit
         let pushMessagesHistoryProcessorHandler = PushMessagesHistoryProcessorHandler(sessionContextHolder: sessionContextHolder, httpService: httpService, sdkKey: rbConfig.getSdkKey(), jsonDeserializerService: jsonDeserializerService)
         
         let inAppNotificationProcessorHandler =
-            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: inAppNotificationsHttpService, eventProcessorHandler: eventProcessorHandler, rbConfig: rbConfig, jsonDeserializerService: jsonDeserializerService)
+            InAppNotificationProcessorHandler(applicationContextHolder: applicationContextHolder, sessionContextHolder: sessionContextHolder, httpService: inAppNotificationsHttpService, eventProcessorHandler: eventProcessorHandler, rbConfig: rbConfig, jsonDeserializerService: jsonDeserializerService, deviceService: deviceService)
         
         chainProcessorHandler.addHandler(handler: inAppNotificationProcessorHandler)
 

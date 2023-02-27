@@ -18,14 +18,16 @@ import UIKit
     private let httpService: HttpService
     private let eventProcessorHandler: EventProcessorHandler
     private let jsonDeserializerService: JsonDeserializerService
+    private let deviceService: DeviceService
     
-    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, eventProcessorHandler: EventProcessorHandler, rbConfig: RBConfig,jsonDeserializerService: JsonDeserializerService) {
+    init(applicationContextHolder: ApplicationContextHolder, sessionContextHolder: SessionContextHolder, httpService: HttpService, eventProcessorHandler: EventProcessorHandler, rbConfig: RBConfig,jsonDeserializerService: JsonDeserializerService,deviceService: DeviceService) {
         self.applicationContextHolder = applicationContextHolder
         self.sessionContextHolder = sessionContextHolder
         self.httpService = httpService
         self.eventProcessorHandler = eventProcessorHandler
         self.rbConfig = rbConfig
         self.jsonDeserializerService = jsonDeserializerService
+        self.deviceService = deviceService
     }
 
     
@@ -56,14 +58,38 @@ import UIKit
     }
     
     
-    func callAfter(pageType: String) {
+    func callAfter(event: RBEvent) {
         var params = Dictionary<String, String>()
         params["sdkKey"] = rbConfig.getSdkKey()
         params["pid"] = applicationContextHolder.getPersistentId()
-        params["pageType"] = pageType
+        params["deviceLang"] = deviceService.getLanguage()
+        let pageType = event.getStringParameterValue(key: "pageType")
+        if pageType != nil {
+            params["pageType"] = pageType
+        }
+        let entity = event.getStringParameterValue(key: "entity")
+        if entity != nil {
+            params["entity"] = pageType
+        }
+        let entityId = event.getStringParameterValue(key: "entityId")
+        if entityId != nil {
+            params["entityId"] = pageType
+        }
+        let collectionId = event.getStringParameterValue(key: "collectionId")
+        if collectionId != nil {
+            params["collectionId"] = pageType
+        }
         if sessionContextHolder.getMemberId() != nil {
             params["memberId"] = sessionContextHolder.getMemberId()
         }
+        
+        let price = event.getStringParameterValue(key: "price")
+        if price != nil {
+            params["price"] = price
+        }
+        
+        
+
 
         let responseHandler: (HttpResult) -> InAppNotificationResponse? = { hr in
             if let body = hr.getBody() {

@@ -10,7 +10,7 @@ import Foundation
 
 class ApplicationContextHolder {
     private let persistentId: String
-    private let sdkVersion = "3.0.4"
+    private let sdkVersion = "3.1.0"
     private var newInstallation = false
 
     init(userDefaults: UserDefaults) {

@@ -40,6 +40,22 @@ class RBEvent{
         return self
     }
     
+    func getStringParameterValue(key: String) -> String? {
+        if let pageType = b[key] as? String {
+            return pageType
+        }else{
+            return nil
+        }
+    }
+    
+    func getDoubleParameterValue(key: String) -> String? {
+        if let pageType = b[key] as? String {
+            return pageType
+        }else{
+            return nil
+        }
+    }
+    
     func appendExtra(params: Dictionary<String, Any>) -> RBEvent {
         for eachParam in params {
             b[eachParam.key] = eachParam.value
