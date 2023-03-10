@@ -36,6 +36,7 @@ import Foundation
 
     public func apiUrl(url: String) -> RBConfig {
         self.apiUrl = RBConfig.getValidUrl(url: url)
+        self.inAppNotificationsUrl = RBConfig.getValidUrl(url: url)
         return self
     }
 
