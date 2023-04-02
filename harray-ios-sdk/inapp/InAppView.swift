@@ -13,20 +13,17 @@ import WebKit
 class InAppView : UIView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var webViewContainerView: UIView!
-    @IBOutlet var btnClose: UIButton!
+    private let jsonDeserializerService: JsonDeserializerService = JsonDeserializerService()
+    
     
     var onNavigation: ((_ navigateTo: String) -> ())?
-    var onClose: (() -> ())?
+    var onClose: ((_ closeClicked: Bool) -> ())?
     
     let kCONTENT_XIB_NAME = "InAppView"
     
-    @IBAction func btnCloseAction(_ sender: Any) {
-        closingEvent()
-    }
-    
-    func closingEvent(){
+    func closingEvent(_ closeClicked: Bool){
         self.removeFromSuperview()
-        self.onClose?()
+        self.onClose?(closeClicked)
     }
     
     override init(frame: CGRect) {
@@ -41,13 +38,16 @@ class InAppView : UIView {
         let bundle = Bundle(identifier: "org.cocoapods.RB")
         bundle?.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         containerView.fixInView(self)
+     
+        let webViewConfiguration = WKWebViewConfiguration()
+        webViewConfiguration.userContentController.add(self, name: "RBIos")
         
-        btnClose.setImage(UIImage(named: "icon_close", in: bundle, compatibleWith: nil), for: .normal)
-        
-        let webView = WKWebView(frame: webViewContainerView.frame)
+        let webView = WKWebView(frame: webViewContainerView.frame, configuration: webViewConfiguration)
         webView.fixInView(webViewContainerView)
         webView.isOpaque = false
         webView.backgroundColor = .clear
+        webView.scrollView.isScrollEnabled = false
+        
         webViewContainerView.addSubview(webView)
         webView.navigationDelegate = self
         webView.loadHTMLString(content, baseURL: nil)
@@ -59,12 +59,50 @@ class InAppView : UIView {
     
 }
 
+extension CGRect {
+    var center : CGPoint {
+        return CGPoint(x:self.midX, y:self.midY)
+    }
+    
+    var bottom: CGPoint {
+        return CGPoint(x:self.maxX, y:self.maxY)
+    }
+    
+    var top: CGPoint {
+        return CGPoint(x:self.minX, y:self.minY)
+    }
+}
+
+extension InAppView: WKScriptMessageHandler{
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard let response = message.body as? String else {
+            self.closingEvent(true)
+            return
+        }
+        let event : InAppNotificationEvent? = jsonDeserializerService.deserialize(jsonString: response)
+        
+        if (event != nil){
+            if ("close" == event?.eventType) {
+                self.closingEvent(true)
+            }else if ("linkClicked" == event?.eventType) {
+                self.onNavigation?(event?.link ?? "")
+                self.closingEvent(false)
+            }
+            else if ("renderCompleted" == event?.eventType) {
+               
+            }
+        }else{
+            self.closingEvent(true)
+        }
+    }
+}
+
 extension InAppView: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping ((WKNavigationActionPolicy) -> Void)) {
         let url = navigationAction.request.url?.absoluteString ?? ""
         if(!url.contains("about:blank")){
                 self.onNavigation?(url)
-                self.closingEvent()
+                self.closingEvent(false)
             }
             decisionHandler(.allow)
         }
@@ -74,7 +112,9 @@ extension UIView {
     func fixInView(_ container: UIView!) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.frame = container.frame
+        
         container.addSubview(self)
+        
         NSLayoutConstraint(item: self,
                            attribute: .leading,
                            relatedBy: .equal,

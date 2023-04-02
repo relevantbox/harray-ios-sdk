@@ -13,4 +13,10 @@ class InAppNotificationResponse: Decodable{
     let style: String?
     let html: String?
     let imageUrl: String?
+    let position: String?
+}
+
+class InAppNotificationEvent: Decodable{
+    let eventType: String
+    let link: String?
 }

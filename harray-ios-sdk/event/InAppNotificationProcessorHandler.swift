@@ -40,15 +40,35 @@ import UIKit
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 
                 if let frame = self.topViewController()?.view.frame {
+                    
                     let mView = InAppView(frame: frame)
-                    mView.loadPopup(content: "<html><head><style>" + notificationResponse.style! + "</style></head><body>" + notificationResponse.html! + "</body></html>")
+                    
+                    let position = notificationResponse.position ?? "center"
+                    
+                    if ("center" == position) {
+                        mView.bounds.origin.y = frame.center.y / 2 * -1
+                    } else  if ("top" == position) {
+                        mView.bounds.origin.y = frame.top.y / 2 * -1
+                    } else  if ("bottom" == position) {
+                        mView.bounds.origin.y = frame.bottom.y / 2 * -1
+                    }else  if ("full" == position) {
+                        mView.bounds.origin.y = frame.top.y / 2 * -1
+                        
+                    }
+                    
+                    mView.loadPopup(content: notificationResponse.html!)
                     mView.onNavigation = {
                         navigateTo in
+                        params["action"] = "click"
+                        self.eventProcessorHandler.actionResult(type: "bannerClick", params: params)
                         self.rbConfig.getInAppNotificationLinkClickHandler()?(navigateTo)
                     }
                     mView.onClose = {
-                        params["action"] = "close"
-                        self.eventProcessorHandler.actionResult(type: "bannerClose", params: params)
+                        closeClicked in
+                        if (closeClicked) {
+                            params["action"] = "close"
+                            self.eventProcessorHandler.actionResult(type: "bannerClose", params: params)
+                        }
                     }
                     self.topViewController()?.view.addSubview(mView)
                 }
@@ -61,6 +81,7 @@ import UIKit
     func callAfter(event: RBEvent) {
         var params = Dictionary<String, String>()
         params["sdkKey"] = rbConfig.getSdkKey()
+        params["source"] = "ios"
         params["pid"] = applicationContextHolder.getPersistentId()
         params["deviceLang"] = deviceService.getLanguage()
         let pageType = event.getStringParameterValue(key: "pageType")
@@ -87,9 +108,6 @@ import UIKit
         if price != nil {
             params["price"] = price
         }
-        
-        
-
 
         let responseHandler: (HttpResult) -> InAppNotificationResponse? = { hr in
             if let body = hr.getBody() {
