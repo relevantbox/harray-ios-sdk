@@ -237,7 +237,7 @@ class EventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(applicationContextHolder.getPersistentId() == header["p"] as! String)
         XCTAssertTrue(sessionContextHolder.getSessionId() == header["s"] as! String)
         XCTAssertTrue(sessionContextHolder.getMemberId() == body["memberId"] as! String)
-        XCTAssertTrue("productDetail" == body["pageType"] as! String)
+        XCTAssertTrue("productDetail" == body["type"] as! String)
         XCTAssertTrue("value1" == body["param1"] as! String)
         XCTAssertTrue(1 == body["param2"] as! Int)
     }

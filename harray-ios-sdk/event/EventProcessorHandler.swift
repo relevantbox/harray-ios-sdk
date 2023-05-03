@@ -58,7 +58,7 @@ import Foundation
 
     @objc public func impression(pageType: String, params: Dictionary<String, Any>) {
         let event = RBEvent.create(name: "IM", persistentId: applicationContextHolder.getPersistentId(), sessionId: sessionContextHolder.getSessionId())
-                .addBody(key: "pageType", value: pageType)
+                .addBody(key: "type", value: pageType)
                 .memberId(memberId: sessionContextHolder.getMemberId())
                 .appendExtra(params: params)
                 .toMap()
