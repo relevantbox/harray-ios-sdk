@@ -206,7 +206,7 @@ class EventProcessorHandlerTest: XCTestCase {
         XCTAssertTrue(applicationContextHolder.getPersistentId() == header["p"] as! String)
         XCTAssertTrue(sessionContextHolder.getSessionId() == header["s"] as! String)
         XCTAssertTrue(sessionContextHolder.getMemberId() == body["memberId"] as! String)
-        XCTAssertTrue("productDetail" == body["pageType"] as! String)
+        XCTAssertTrue("productDetail" == body["type"] as! String)
     }
 
     func test_it_should_construct_impression_event_and_append_extra_params_to_event_and_make_api_call() {
